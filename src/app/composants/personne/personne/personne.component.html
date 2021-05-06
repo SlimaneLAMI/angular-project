@@ -8,21 +8,22 @@
     </div>
     <div class="form-group">
         <label for="prenom">Prenom:</label>
-        <input class="form-control" type="text" name="prenom" [(ngModel)]="personne.prenom" required #prenom="ngModel"> 
+        <input class="form-control" type="text" name="prenom" [(ngModel)]="personne.prenom" required #prenom="ngModel">
     </div>
     <div [hidden]="prenom.valid || prenom.pristine">
         le prenom est obligatoire
     </div>
     <div class="form-group">
         <label for="salaire">Salaire:</label>
-        <input class="form-control" type="number" name="salaire" [(ngModel)]="personne.salaire" required #salaire="ngModel"> 
+        <input class="form-control" type="number" name="salaire" [(ngModel)]="personne.salaire" required
+            #salaire="ngModel">
     </div>
     <div [hidden]="salaire.valid || salaire.pristine">
         le salaire est obligatoire
     </div>
     <div class="form-group">
         <label for="prenom">Ville:</label>
-        <input class="form-control" type="text" name="ville" [(ngModel)]="personne.ville" required #ville="ngModel"> 
+        <input class="form-control" type="text" name="ville" [(ngModel)]="personne.ville" required #ville="ngModel">
     </div>
     <div [hidden]="ville.valid || ville.pristine">
         le ville est obligatoire
@@ -33,14 +34,21 @@
         </button>
     </div>
 </form>
-<ul class="list-group">
-    <li *ngFor="let elt of personnes">
-    {{ elt.nom }} {{ elt.prenom }}, {{ elt.salaire }} €, {{ elt.ville }}
-    <button (click)="personDetails(elt.id)">
-        Select
-    </button>
-    <button (click)="delPerson(elt.id)">
-        Supp
-    </button>
-    </li>
-</ul>
+<br>
+<h4>Personnes</h4>
+<tr class="row justify-content-start" *ngFor="let elt of personnes">
+    <td class="col-4">
+        {{ elt.nom }} {{ elt.prenom }}, {{ elt.salaire }} €, {{ elt.ville }}
+    </td>
+    <td class="col-4">
+        <button (click)="personDetails(elt.id)" class="btn btn-outline-primary btn-sm">
+            Select
+        </button>
+        <button (click)="delPerson(elt.id)" class="btn btn-outline-danger btn-sm">
+            Supp
+        </button>
+        <button class="btn btn-outline-info btn-sm">
+            Modif
+        </button>
+    </td>
+</tr>
