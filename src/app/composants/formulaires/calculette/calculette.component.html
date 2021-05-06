@@ -1,0 +1,14 @@
+<h3>Calculette</h3>
+<div>
+    Nombre 1: <input type="number" [(ngModel)]="nbr1" class="input-group-text">
+</div>
+<div>
+    Nombre 2: <input type="number" [(ngModel)]="nbr2" class="input-group-text">
+</div>
+<div>
+    <button (click)="addition()" class="btn btn-dark">+</button>
+    <button (click)="soustraction()" class="btn btn-dark">-</button>
+    <button (click)="multiplication()" class="btn btn-dark">*</button>
+    <button (click)="division()" class="btn btn-dark">/</button>
+</div>
+{{ resultat }}

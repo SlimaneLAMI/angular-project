@@ -1,0 +1,19 @@
+<h2>Personne Details</h2>
+<hr />
+<div *ngIf="personne">
+    <div>
+        <input [(ngModel)]="personne[0].id" />
+    </div>
+    <div>
+        <input [(ngModel)]="personne[0].nom" />
+    </div>
+    <div>
+        <input [(ngModel)]="personne[0].prenom" />
+    </div>
+    <div>
+        <input [(ngModel)]="personne[0].salaire" />
+    </div>
+    <div>
+        <input [(ngModel)]="personne[0].ville" />
+    </div>
+</div>

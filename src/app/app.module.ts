@@ -1,16 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HomeComponent } from './composants/home/home.component';
+import { AdresseComponent } from './composants/adresse/adresse.component';
+import { StagiaireComponent } from './composants/stagiaire/stagiaire.component';
+import { ErrorComponent } from './composants/error/error.component';
+import { TemplateFormComponent } from './composants/formulaires/template-form/template-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CalculetteComponent } from './composants/formulaires/calculette/calculette.component';
+import { ReactiveFormComponent } from './composants/formulaires/reactive-form/reactive-form.component';
+import { CommentaireComponent } from './composants/formulaires/commentaire/commentaire.component';
+import { PersonneComponent } from './composants/personne/personne/personne.component';
+import { PersonneDetailsComponent } from './composants/personne/personne-details/personne-details.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    AdresseComponent,
+    StagiaireComponent,
+    ErrorComponent,
+    TemplateFormComponent,
+    CalculetteComponent,
+    ReactiveFormComponent,
+    CommentaireComponent,
+    PersonneComponent,
+    PersonneDetailsComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule    
   ],
   providers: [],
   bootstrap: [AppComponent]
