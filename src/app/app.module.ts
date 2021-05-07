@@ -15,6 +15,7 @@ import { ReactiveFormComponent } from './composants/formulaires/reactive-form/re
 import { CommentaireComponent } from './composants/formulaires/commentaire/commentaire.component';
 import { PersonneComponent } from './composants/personne/personne/personne.component';
 import { PersonneDetailsComponent } from './composants/personne/personne-details/personne-details.component';
+import { PersonneEditComponent } from './composants/personne/personne-edit/personne-edit.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { PersonneDetailsComponent } from './composants/personne/personne-details
     ReactiveFormComponent,
     CommentaireComponent,
     PersonneComponent,
-    PersonneDetailsComponent
+    PersonneDetailsComponent,
+    PersonneEditComponent
   ],
   imports: [
     BrowserModule,

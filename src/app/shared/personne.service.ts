@@ -73,6 +73,17 @@ export class PersonneService {
         catchError(this.errorMgmt)
       )
   }
+
+  updatePerson(id: number, data: Personne){
+    let API_URL = `${this.url}/${id}`;
+    return this.http.put(API_URL, data)
+      .pipe(
+        map((res: any) => {
+          return console.log("service :" + res);
+        }),
+        catchError(this.errorMgmt)
+      );
+  }
   
   deletePerson(id: any) {
     let API_URL = `${this.url}/${id}`;

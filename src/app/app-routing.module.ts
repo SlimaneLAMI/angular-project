@@ -10,6 +10,7 @@ import { ReactiveFormComponent } from './composants/formulaires/reactive-form/re
 import { CommentaireComponent } from './composants/formulaires/commentaire/commentaire.component';
 import { PersonneComponent } from './composants/personne/personne/personne.component';
 import { PersonneDetailsComponent } from './composants/personne/personne-details/personne-details.component';
+import { PersonneEditComponent } from './composants/personne/personne-edit/personne-edit.component';
 
 const routes: Routes = [
   // localhost:4200/
@@ -34,6 +35,8 @@ const routes: Routes = [
   {path: 'personne', component: PersonneComponent },
   // localhost:4200/details/:id
   {path: 'details/:id', component: PersonneDetailsComponent },
+  // localhost:4200/edit/:id
+  { path: 'edit/:id', component: PersonneEditComponent },
   // localhost:4200/error
   {path: 'error', component: ErrorComponent},
   // pathMatch = 'full' signifie que tout chemin d'url doit correspondre

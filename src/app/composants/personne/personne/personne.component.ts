@@ -32,7 +32,11 @@ export class PersonneComponent implements OnInit {
     })
   }
 
+  personEdit(id: any){
+    this.router.navigate(['edit', id]);
+  }
 
+  
   delPerson(id: any) {
     this.personneService.deletePerson(id).subscribe(data => {
       console.log(data);
