@@ -11,6 +11,11 @@ import { CommentaireComponent } from './composants/formulaires/commentaire/comme
 import { PersonneComponent } from './composants/personne/personne/personne.component';
 import { PersonneDetailsComponent } from './composants/personne/personne-details/personne-details.component';
 import { PersonneEditComponent } from './composants/personne/personne-edit/personne-edit.component';
+import { PersonResolver } from './resolvers/person.resolver';
+import { PersonDetailsResolver } from './resolvers/person-details.resolver';
+import { RocketComponent } from './composants/rocket/rocket/rocket.component';
+import { RocketResolver } from './resolvers/rocket.resolver';
+import { RocketEditComponent } from './composants/rocket/rocket-edit/rocket-edit.component';
 
 const routes: Routes = [
   // localhost:4200/
@@ -32,11 +37,15 @@ const routes: Routes = [
   // localhost:4200/commentaire
   {path: 'commentaire', component: CommentaireComponent},
   // localhost:4200/personne
-  {path: 'personne', component: PersonneComponent },
+  {path: 'personne', runGuardsAndResolvers: 'always', component: PersonneComponent, resolve: { routeResolver: PersonResolver}},
   // localhost:4200/details/:id
-  {path: 'details/:id', component: PersonneDetailsComponent },
+  {path: 'details/:id', component: PersonneDetailsComponent, resolve: {personne: PersonDetailsResolver}},
   // localhost:4200/edit/:id
   { path: 'edit/:id', component: PersonneEditComponent },
+  // localhost:4200/rocket
+  { path: 'rocket', runGuardsAndResolvers: 'always', component: RocketComponent, resolve: { routeResolver: RocketResolver} },
+  // localhost:4200/edit-rocket/:id
+  { path: 'edit-rocket/:id', component: RocketEditComponent },
   // localhost:4200/error
   {path: 'error', component: ErrorComponent},
   // pathMatch = 'full' signifie que tout chemin d'url doit correspondre
@@ -45,9 +54,11 @@ const routes: Routes = [
   {path: '**', redirectTo: '/error'},
 ];
 
-// enableTracing
+//  enableTracing: true permet de garder une trace de la recherche d’un chemin (pour le debogage).
+
 @NgModule({
   imports: [RouterModule.forRoot(routes, {enableTracing:true})],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [PersonResolver, PersonDetailsResolver, RocketResolver]
 })
 export class AppRoutingModule { }

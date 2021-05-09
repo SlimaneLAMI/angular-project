@@ -13,8 +13,7 @@ export class PersonneEditComponent implements OnInit {
   id!: number;
   personne: Personne = {};
 
-  constructor(private personneService: PersonneService, private router: Router, 
-    private route: ActivatedRoute) { }
+  constructor(private personneService: PersonneService, private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];

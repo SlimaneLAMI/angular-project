@@ -21,15 +21,15 @@
         le salaire est obligatoire
     </div>
     <div class="form-group">
-        <label for="prenom">Ville:</label>
+        <label for="ville">Ville:</label>
         <input class="form-control" type="text" name="ville" [(ngModel)]="personne.ville" required #ville="ngModel"> 
     </div>
     <div [hidden]="ville.valid || ville.pristine">
         le ville est obligatoire
     </div>
     <div>
-        <button class="btn btn-success" [disabled]="!myForm.valid">
-            Ajouter
+        <button class="btn btn-outline-info" [disabled]="!myForm.valid">
+            Modifier
         </button>
     </div>
 </form>

@@ -16,6 +16,8 @@ import { CommentaireComponent } from './composants/formulaires/commentaire/comme
 import { PersonneComponent } from './composants/personne/personne/personne.component';
 import { PersonneDetailsComponent } from './composants/personne/personne-details/personne-details.component';
 import { PersonneEditComponent } from './composants/personne/personne-edit/personne-edit.component';
+import { RocketComponent } from './composants/rocket/rocket/rocket.component';
+import { RocketEditComponent } from './composants/rocket/rocket-edit/rocket-edit.component';
 
 @NgModule({
   declarations: [
@@ -30,14 +32,16 @@ import { PersonneEditComponent } from './composants/personne/personne-edit/perso
     CommentaireComponent,
     PersonneComponent,
     PersonneDetailsComponent,
-    PersonneEditComponent
+    PersonneEditComponent,
+    RocketComponent,
+    RocketEditComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule    
+    HttpClientModule,  
   ],
   providers: [],
   bootstrap: [AppComponent]

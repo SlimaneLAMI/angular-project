@@ -1,0 +1,53 @@
+<h4>Rocket</h4>
+<form #myForm="ngForm" (ngSubmit)="saveRocket()">
+    <div class="form-group">
+        <label for="nom">Nom:</label>
+        <input class="form-control" type="text" name="nom" [(ngModel)]="rocket.nom" required #nom="ngModel">
+    </div>
+    <div [hidden]="nom.valid || nom.pristine">
+        le nom est obligatoire
+    </div>
+    <div class="form-group">
+        <label for="annee">Année:</label>
+        <input class="form-control" type="text" name="annee" [(ngModel)]="rocket.annee" required #annee="ngModel">
+    </div>
+    <div [hidden]="annee.valid || annee.pristine">
+        l annee est obligatoire
+    </div>
+    <div class="form-group">
+        <label for="organisation">Organisation:</label>
+        <input class="form-control" type="text" name="organisation" [(ngModel)]="rocket.organisation" required
+            #organisation="ngModel">
+    </div>
+    <div [hidden]="organisation.valid || organisation.pristine">
+        l organisation est obligatoire
+    </div>
+    <div class="form-group">
+        <label for="destination">Destination:</label>
+        <input class="form-control" type="text" name="destination" [(ngModel)]="rocket.destination" required
+            #destination="ngModel">
+    </div>
+    <div [hidden]="destination.valid || destination.pristine">
+        le destination est obligatoire
+    </div>
+    <div>
+        <button class="btn btn-outline-success" [disabled]="!myForm.valid">
+            Ajouter
+        </button>
+    </div>
+</form>
+<br>
+<h5>Liste des rockets</h5>
+<tr class="row justify-content-start" *ngFor="let elt of rockets">
+    <td class="col-6">
+        {{ elt.nom }}, {{ elt.annee }}, {{ elt.organisation }}, {{ elt.destination }}
+    </td>
+    <td class="col-4">
+        <button (click)="delRocket(elt.id)" class="btn btn-outline-danger btn-sm">
+            Supp
+        </button>
+        <button  (click)="rocketEdit(elt.id)" class="btn btn-outline-info btn-sm">
+            Modif
+        </button>
+    </td>
+</tr>
