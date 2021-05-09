@@ -65,9 +65,6 @@ export class RocketService {
     let API_URL = `${this.url}/${id}`;
     return this.http.delete(API_URL)
       .pipe(
-        map((res: any) => {
-          return console.log("service :" + res);
-        }),
         catchError(this.errorMgmt)
       )
   }
