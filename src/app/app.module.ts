@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -18,6 +18,21 @@ import { PersonneDetailsComponent } from './composants/personne/personne-details
 import { PersonneEditComponent } from './composants/personne/personne-edit/personne-edit.component';
 import { RocketComponent } from './composants/rocket/rocket/rocket.component';
 import { RocketEditComponent } from './composants/rocket/rocket-edit/rocket-edit.component';
+import { NgxBootstrapModule } from './shared/modules/ngx-bootstrap.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MaterialModule } from './shared/modules/material.module';
+import { TableComponent } from './composants/materials/table/table.component';
+import { AddressFormComponent } from './composants/materials/address-form/address-form.component';
+import { TreeComponent } from './composants/materials/tree/tree.component';
+import { AuthComponent } from './composants/auth/auth.component';
+import { RegisterComponent } from './composants/register/register.component';
+import { ProfileComponent } from './composants/profile/profile.component';
+import { AuthInterceptor } from './helpers/auth.interceptor';
+import { FeatureCardComponent } from './composants/interactions/feature-card/feature-card.component';
+import { FeaturesComponent } from './composants/interactions/features/features.component';
+import { SkillComponent } from './composants/interactions/exercices/skill/skill.component';
+import { DeveloperComponent } from './composants/interactions/exercices/developer/developer.component';
+
 
 @NgModule({
   declarations: [
@@ -34,16 +49,33 @@ import { RocketEditComponent } from './composants/rocket/rocket-edit/rocket-edit
     PersonneDetailsComponent,
     PersonneEditComponent,
     RocketComponent,
-    RocketEditComponent
+    RocketEditComponent,
+    TableComponent,
+    AddressFormComponent,
+    TreeComponent,
+    AuthComponent,
+    RegisterComponent,
+    ProfileComponent,
+    FeatureCardComponent,
+    FeaturesComponent,
+    SkillComponent,
+    DeveloperComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,  
+    HttpClientModule,
+    NgxBootstrapModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
-  providers: [],
+  providers: [{ provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {   
+  constructor(){
+    console.log("App-module");
+  }
+}

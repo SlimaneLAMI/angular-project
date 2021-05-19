@@ -1,24 +1,26 @@
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
-    <a href="" class="navbar-brand">Formation Angular</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapseNavbar">
+<nav ngxNavbarDynamicExpand class="navbar-dark bg-dark">
+    <a routerLink='home' class="navbar-brand">Formation Angular</a>
+    <button class="navbar-toggler" type="button" (click)="collapse.toggle()">
         <span class="navbar-toggler-icon">
         </span>
     </button>
-    <div class="collapse navbar-collapse" id="collapseNavbar">
-        <ul class="nav navbar-nav">
-            <li><a class="nav-link item" routerLink="home" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a></li>
-            <li><a class="nav-link item" routerLink="stagiaire" routerLinkActive="active">Stagiaire</a></li>
-            <li><a class="nav-link item" routerLink="adresse" routerLinkActive="active">Adresse</a></li>
-            <li><a class="nav-link item" routerLink="template-form" routerLinkActive="active">Formulaire 1</a></li>
-            <li><a class="nav-link item" routerLink="reactive-form" routerLinkActive="active">Formulaire 2</a></li>
-            <li><a class="nav-link item" routerLink="commentaire" routerLinkActive="active">Commentaire</a></li>
-            <li><a class="nav-link item" routerLink="calculette" routerLinkActive="active">Calculette</a></li>
-            <li><a class="nav-link item" routerLink="personne" routerLinkActive="active">Personne</a></li>
-            <li><a class="nav-link item" routerLink="rocket" routerLinkActive="active">Rocket</a></li>
+    <ngx-navbar-collapse class="collapse navbar-collapse" #collapse="ngxNavbarCollapse" >
+        <ul class="navbar-nav mr-auto">
+            <li *ngFor="let tab of tabs"><a class="nav-link item" routerLink="/{{tab.path}}" routerLinkActive="active"> {{tab.title}}</a></li>    
+            
+            <li *ngIf="isConnected(); else sinon">
+                <a class="nav-link item" (click)='logOut()'>Logout</a>
+              </li>
+              <ng-template #sinon>
+                <li>
+                  <a class="nav-link item" routerLink="auth">
+                    Login
+                  </a>
+                </li>
+              </ng-template> 
         </ul>
-    </div>
+    </ngx-navbar-collapse>
 </nav>
 <div class="container">
     <router-outlet></router-outlet>
 </div>
-
